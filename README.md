@@ -1,6 +1,6 @@
 # Starter Maths Game
 
-This maths game is used in the classroom to teach the basics of JavaScript.
+This maths game is used to teach the basics of JavaScript and the DOM.
 
 ## REQUIRED CHALLENGE
 
@@ -11,7 +11,7 @@ This maths game is used in the classroom to teach the basics of JavaScript.
 
 ## BONUS CHALLENGES
 
-* Add a division game that requires whole numbers as answers
+* Add a division game that requires integers as answers
 * Add a timer to the project
 * Add difficulty levels - Easy, Normal, Difficult - that affect the complexity of the questions.
-* Add a high-score chart for people who get the most answers right in the time available
+* Add a high-score chart for people who get the most answers right in the time available (research using local storage)
