@@ -58,6 +58,7 @@ function additionQuiz() {
     let num2 = Math.floor(Math.random() * 50) + 1;
     questionBox.textContent = `${num1} + ${num2}?`;
     answerForm["rightAnswer"].value = (num1 + num2);
+    return false;
 }
 
 additionQuiz();
