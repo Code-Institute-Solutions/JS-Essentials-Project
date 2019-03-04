@@ -65,15 +65,15 @@ function checkAnswer() {
         answerHistory.push(false);
     }
 
-    scoreBox.textContent = scoreTally; // Sets the score
-    setAnswerHistory(); // Display the smiley faces
+    scoreBox.textContent = scoreTally;  // Sets the score
+    setAnswerHistory();                 // Display the smiley faces
 }
 
 // Optional code to detect Enter key press
 
 function checkForEnterKey(e) {
-    if (e.keyCode == 13) {
-        checkAnswer();
+    if (e.keyCode == 13) {              // 13 is the key code for Enter
+        checkAnswer();                  // If Enter was pressed, check our answer
     }
 }
 

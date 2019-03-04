@@ -14,19 +14,23 @@
 <body>
 
     <h1 class="heading"><i class="far fa-heart text-heart"></i>&nbsp;Love Maths&nbsp;<i class="far fa-heart text-heart"></i></h1>
+    
     <div class="controls">
         <button class="btn btn--big btn--red" onclick="setAdditionGame()"><i class="fas fa-plus-circle"></i>&nbsp;Addition</button>
         <button class="btn btn--big btn--blue" onclick="setSubtractionGame()"><i class="fas fa-minus-circle"></i>&nbsp;Subtraction</button>
         <button class="btn btn--big btn--green" onclick="setMultiplicationGame()"><i class="fas fa-times-circle"></i>&nbsp;Multiplication</button>
     </div>
+    
     <h2>Your score is: <span id="score">0</span></h2>
+    
     <h1>What is: <span id="question"></span></h1>
 
     <h2>Enter answer: <input id="answer-box" type="number" name="answer" onkeypress="checkForEnterKey(event)"></h2>
-    <input type="hidden" name="rightAnswer">
+    
     <div id="answer-history">
 
     </div>
+    
     <button class="btn btn--gray" onclick="checkAnswer()" type="button">Submit Answer</button>
 
     <script src="js/game.js"></script>
