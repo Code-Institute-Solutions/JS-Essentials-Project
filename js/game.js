@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
  3 = Multiplication game
  Then call runGame with the appropriate type
 */
+
 function setAdditionGame() {
     gameType = 1;
     runGame(gameType);
@@ -47,7 +48,8 @@ function setMultiplicationGame() {
     runGame(gameType);
 }
 
-// Run checkAnswer when the Submit button is clicked
+// checkAnswer() is called when our Submit button is clicked
+// or when the Enter key is pressed
 
 function checkAnswer() {
 
@@ -114,9 +116,18 @@ function runGame(gameSelect) {
     answerBox.focus();      // Puts the cursor in the answer box
 
     if (gameSelect == 1) {
+        
+        // Create two random numbers between 1 and 50
+        
         let num1 = Math.floor(Math.random() * 50) + 1;
         let num2 = Math.floor(Math.random() * 50) + 1;
+        
+        // Set the question
+        
         questionBox.textContent = `${num1} + ${num2}?`;
+        
+        // Store the correct answer in rightAnswer
+        
         rightAnswer = (num1 + num2);
     }
     else
