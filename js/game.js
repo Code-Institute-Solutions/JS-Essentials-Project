@@ -51,16 +51,16 @@ function setMultiplicationGame() {
 // Optional code to detect Enter key press
 
 function checkForEnterKey(keyPress) {
-    if (keyPress.keyCode == 13) {       // 13 is the key code for Enter
-        answerSubmitted();              // If Enter was pressed, our answer was submitted
+    if (keyPress.keyCode == 13) { // 13 is the key code for Enter
+        answerSubmitted(); // If Enter was pressed, our answer was submitted
     }
 }
 
 function answerSubmitted() {
-    let newScore = checkAnswer();       // Checks our answer
-    setScore(newScore);                 // Sets the score
-    setAnswerHistory();                 // Display the smiley faces
-    runGame(gameType);                  // Run the next game
+    let newScore = checkAnswer(); // Checks our answer
+    setScore(newScore); // Sets the score
+    setAnswerHistory(); // Display the smiley faces
+    runGame(gameType); // Run the next game
 }
 
 // checkAnswer() is called when our Submit button is clicked
@@ -81,7 +81,7 @@ function checkAnswer() {
         alert("Awww...wrong this time :(");
         answerHistory.push(false);
     }
-    
+
     return scoreTally;
 }
 
@@ -91,8 +91,8 @@ function setScore(newScore) {
 
 function setAnswerHistory() {
 
-    // Iterates through the array and sets two classes in
-    // htmlString - either a happy face in green or a sad face in red
+    // Iterates through the array and sets two classes in htmlString - 
+    // either a happy face in green or a sad face in red
 
     let htmlString = "";
     for (let correctAnswer of answerHistory) {
@@ -119,24 +119,12 @@ function runGame(gameSelect) {
      2 = Subtraction game
      3 = Multiplication game
     */
-    
-    answerBox.value = "";   // Erases the last typed answer
-    answerBox.focus();      // Puts the cursor in the answer box
+
+    answerBox.value = ""; // Erases the last typed answer
+    answerBox.focus(); // Puts the cursor in the answer box
 
     if (gameSelect == 1) {
-        
-        // Create two random numbers between 1 and 50
-        
-        let num1 = Math.floor(Math.random() * 50) + 1;
-        let num2 = Math.floor(Math.random() * 50) + 1;
-        
-        // Set the question
-        
-        questionBox.textContent = `${num1} + ${num2}?`;
-        
-        // Store the correct answer in rightAnswer
-        
-        rightAnswer = (num1 + num2);
+        runAdditionGame();
     }
     else
     if (gameSelect == 2) {
@@ -146,4 +134,19 @@ function runGame(gameSelect) {
     if (gameSelect == 3) {
         // Multiplication game goes here
     }
+}
+
+function runAdditionGame() {
+    // Create two random numbers between 1 and 50
+
+    let num1 = Math.floor(Math.random() * 50) + 1;
+    let num2 = Math.floor(Math.random() * 50) + 1;
+
+    // Set the question
+
+    questionBox.textContent = `${num1} + ${num2}?`;
+
+    // Store the correct answer in rightAnswer
+
+    rightAnswer = (num1 + num2);
 }
