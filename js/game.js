@@ -56,15 +56,15 @@ function checkForEnterKey(keyPress) {
     }
 }
 
+// answerSubmitted() is called when our answer is submitted either 
+// by clicking the Submit button or pressing the Enter key
+
 function answerSubmitted() {
     let newScore = checkAnswer(); // Checks our answer
     setScore(newScore); // Sets the score
     setAnswerHistory(); // Display the smiley faces
     runGame(gameType); // Run the next game
 }
-
-// checkAnswer() is called when our Submit button is clicked
-// or when the Enter key is pressed
 
 function checkAnswer() {
 
