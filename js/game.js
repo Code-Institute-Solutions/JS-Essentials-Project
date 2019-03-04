@@ -124,7 +124,7 @@ function runGame(gameSelect) {
     answerBox.focus(); // Puts the cursor in the answer box
 
     if (gameSelect == 1) {
-        runAdditionGame();
+        questionBox.textContent = runAdditionGame();
     }
     else
     if (gameSelect == 2) {
@@ -142,11 +142,9 @@ function runAdditionGame() {
     let num1 = Math.floor(Math.random() * 50) + 1;
     let num2 = Math.floor(Math.random() * 50) + 1;
 
-    // Set the question
-
-    questionBox.textContent = `${num1} + ${num2}?`;
-
     // Store the correct answer in rightAnswer
 
     rightAnswer = (num1 + num2);
+    
+    return `${num1} + ${num2}?`;
 }
