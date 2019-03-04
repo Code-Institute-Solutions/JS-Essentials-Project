@@ -15,7 +15,7 @@ let answerBox;
 // When the DOM has loaded, initialise the variables and
 // run the addition game
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function() {
     historyDiv = document.getElementById("answer-history");
     scoreBox = document.getElementById("score");
     questionBox = document.getElementById("question");
@@ -48,6 +48,21 @@ function setMultiplicationGame() {
     runGame(gameType);
 }
 
+// Optional code to detect Enter key press
+
+function checkForEnterKey(keyPress) {
+    if (keyPress.keyCode == 13) {       // 13 is the key code for Enter
+        answerSubmitted();              // If Enter was pressed, our answer was submitted
+    }
+}
+
+function answerSubmitted() {
+    let newScore = checkAnswer();       // Checks our answer
+    setScore(newScore);                 // Sets the score
+    setAnswerHistory();                 // Display the smiley faces
+    runGame(gameType);                  // Run the next game
+}
+
 // checkAnswer() is called when our Submit button is clicked
 // or when the Enter key is pressed
 
@@ -66,17 +81,12 @@ function checkAnswer() {
         alert("Awww...wrong this time :(");
         answerHistory.push(false);
     }
-
-    scoreBox.textContent = scoreTally;  // Sets the score
-    setAnswerHistory();                 // Display the smiley faces
+    
+    return scoreTally;
 }
 
-// Optional code to detect Enter key press
-
-function checkForEnterKey(e) {
-    if (e.keyCode == 13) {              // 13 is the key code for Enter
-        checkAnswer();                  // If Enter was pressed, check our answer
-    }
+function setScore(newScore) {
+    scoreBox.textContent = newScore;
 }
 
 function setAnswerHistory() {
@@ -99,8 +109,6 @@ function setAnswerHistory() {
         htmlString += `<i class='fas ${answerFace} ${answerClass}'></i>`;
     }
     historyDiv.innerHTML = htmlString;
-
-    runGame(gameType);
 }
 
 function runGame(gameSelect) {
