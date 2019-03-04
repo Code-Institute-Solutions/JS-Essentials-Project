@@ -1,6 +1,6 @@
 # Starter Maths Game
 
-This maths game is used to teach the basics of JavaScript and the DOM.
+This maths game is used to teach the basics of JavaScript and the DOM. [Live version.](https://lechien73.github.io/mathsgame-review/)
 
 ## REQUIRED:
 
