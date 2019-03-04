@@ -11,7 +11,7 @@ body {
     font-family: "Righteous", cursive;
     text-align: center;
     text-shadow: 2px 2px lightgray;
-    
+
     transform: rotate(-45deg);
     position: absolute;
     top: 50px;
@@ -93,6 +93,16 @@ body {
 #answer-history {
     height: 40px;
     font-size: 20px;
+}
+
+.answer-correct {
+    color: green;
+    margin-right: 5px;
+}
+
+.answer-incorrect {
+    color: red;
+    margin-right: 5px;
 }
 
 input {

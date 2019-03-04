@@ -22,19 +22,14 @@
     <h2>Your score is: <span id="score">0</span></h2>
     <h1>What is: <span id="question"></span></h1>
 
-    <form id="answer-form" action="#" onsubmit="checkAnswer(); return false;" data-gametype="addition">
+    <h2>Enter answer: <input id="answer-box" type="number" name="answer" onkeypress="checkForEnterKey(event)"></h2>
+    <input type="hidden" name="rightAnswer">
+    <div id="answer-history">
 
-        <h2>Enter answer: <input id="answer-box" type="number" name="answer"></h2>
-        <input type="hidden" name="rightAnswer">
-        <div id="answer-history">
+    </div>
+    <button class="btn btn--gray" onclick="checkAnswer()" type="button">Submit Answer</button>
 
-        </div>
-        <button class="btn btn--gray" type="submit">Submit Answer</button>
-
-    </form>
-
-
-    <script src="game.js"></script>
+    <script src="js/game.js"></script>
 </body>
 
 </html>
