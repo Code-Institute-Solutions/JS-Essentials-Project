@@ -82,9 +82,13 @@ function incrementScore() {
 }
 
 function addToAnswerHistory(isCorrect) {
+    
+    // Creates a new FontAwesome i element, which is appended to the
+    // answer-history div
+    
     let newFace = document.createElement("i");
     newFace.classList.add("fas");
-    if (isCorrect) {
+    if (isCorrect) { // true or false value passed in as an argument
         newFace.classList.add("fa-grin-beam", "answer-correct");
     }
     else {

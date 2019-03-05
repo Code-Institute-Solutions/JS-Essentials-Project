@@ -7,11 +7,11 @@ This maths game is used to teach the basics of JavaScript and the DOM. [Live ver
 * Get the other two games working
 * Improve the styling
 * Provide better feedback to the user - we don't want to use `alert()`
-* Limit the answer history `div` to the previous 20 answers
 
 ## BONUS:
 
 * Add a division game that requires integers as answers
+* Limit the answer history `div` to the previous 20 answers (quite difficult! Research the DOM childElementCount property and the childNodes.item() property)
 * Add difficulty levels - Easy, Normal, Difficult - that affect the complexity of the questions
 
 ## OPTIONAL:
