@@ -1,137 +1,79 @@
-// When the DOM has loaded, create and run the addition game
-
 document.addEventListener("DOMContentLoaded", function() {
-    gameStatus = new Game();
-    runGame();
+    runGame("add");
 });
 
-function Game() {
-    this.currentScore = 0;
-    this.answerHistory = [];
-    this.gameType = 1;
-    this.rightAnswer = 0;
-}
+function calculateRightAnswer() {
+    let operand1 = parseInt(document.getElementById("operand1").innerText);
+    let operand2 = parseInt(document.getElementById("operand2").innerText);
 
-/*
- Functions that run when the corresponding button is clicked
- Change the game type:
- 1 = Addition game
- 2 = Subtraction game
- 3 = Multiplication game
- Then call runGame with the appropriate type
-*/
-
-function setAdditionGame() {
-    gameStatus.gameType = 1;
-    runGame();
-}
-
-function setSubtractionGame() {
-    gameStatus.gameType = 2;
-    runGame();
-}
-
-function setMultiplicationGame() {
-    gameStatus.gameType = 3;
-    runGame();
-}
-
-// Optional code to detect Enter key press
-
-function checkForEnterKey(keyPress) {
-    if (keyPress.keyCode == 13) { // 13 is the key code for Enter
-        answerSubmitted(); // If Enter was pressed, our answer was submitted
-    }
-}
-
-// answerSubmitted() is called when our answer is submitted either 
-// by clicking the Submit button or pressing the Enter key
-
-function answerSubmitted() {
-    checkAnswer(); // Checks our answer
-    setScore(); // Sets the score
-    setAnswerHistory(); // Display the smiley faces
-    runGame(); // Run the next game
-}
-
-function checkAnswer() {
-
-    // Compare the submitted answer with the right answer
-    // If correct, increase the score
-    // Push a true or false value into the answerHistory array
-
-    if (document.getElementById("answer-box").value == gameStatus.rightAnswer) {
-        alert("Hey! You got it right :)");
-        gameStatus.currentScore++;
-        gameStatus.answerHistory.push(true);
+    let operator = document.getElementById("operator").innerText;
+    if (operator == "+") {
+        return [operand1 + operand2, "add"];
     }
     else {
-        alert("Awww...wrong this time :(");
-        gameStatus.answerHistory.push(false);
+        alert `Unimplemented operator: ${operator}`;
+        throw `Unimplemented operator ${operator}, aborting`;
+    }
+}
+
+function checkAnswer(event) {
+    event.preventDefault();
+    
+    let userAnswer = parseInt(document.getElementById("answer-box").value) || 0;
+    let calculatedAnswer = calculateRightAnswer();
+    let isCorrect = userAnswer === calculatedAnswer[0];
+
+    if (isCorrect) {
+        alert("Hey! You got it right :)");
+        incrementScore();
+    }
+    else {
+        alert(`Awww...you answered ${userAnswer}, the correct answer was ${calculatedAnswer[0]} :(`);
     }
 
+    addToAnswerHistory(isCorrect);
+    runGame(calculatedAnswer[1]);
 }
 
-function setScore() {
-    document.getElementById("score").textContent = gameStatus.currentScore;
+function incrementScore() {
+    let oldScore = parseInt(document.getElementById("score").innerText);
+    document.getElementById("score").innerText = oldScore + 1;
 }
 
-function setAnswerHistory() {
-
-    // Iterates through the array and sets two classes in htmlString - 
-    // either a happy face in green or a sad face in red
-
-    let htmlString = "";
-    for (let correctAnswer of gameStatus.answerHistory) {
-        let answerClass;
-        let answerFace;
-        if (correctAnswer) {
-            answerClass = "answer-correct";
-            answerFace = "fa-grin-beam";
-        }
-        else {
-            answerClass = "answer-incorrect";
-            answerFace = "fa-frown-open";
-        }
-        htmlString += `<i class='fas ${answerFace} ${answerClass}'></i>`;
+function addToAnswerHistory(isCorrect) {
+    let newFace = document.createElement("i");
+    newFace.classList.add("fas");
+    if (isCorrect) {
+        newFace.classList.add("fa-grin-beam", "answer-correct");
     }
-    document.getElementById("answer-history").innerHTML = htmlString;
+    else {
+        newFace.classList.add("fa-frown-open", "answer-incorrect");
+    }
+    document.getElementById("answer-history").appendChild(newFace);
 }
 
-function runGame() {
-
-    /*
-     Runs the appropriate game.
-     1 = Addition game
-     2 = Subtraction game
-     3 = Multiplication game
-    */
-
+function runGame(operation) {
     document.getElementById("answer-box").value = ""; // Erases the last typed answer
     document.getElementById("answer-box").focus(); // Puts the cursor in the answer box
-
-    if (gameStatus.gameType == 1) {
-        document.getElementById("question").textContent = runAdditionGame();
-    }
-    else
-    if (gameStatus.gameType == 2) {
-        // Subtraction game goes here
-    }
-    else
-    if (gameStatus.gameType == 3) {
-        // Multiplication game goes here
-    }
-}
-
-function runAdditionGame() {
-    // Create two random numbers between 1 and 50
 
     let num1 = Math.floor(Math.random() * 50) + 1;
     let num2 = Math.floor(Math.random() * 50) + 1;
 
-    // Store the correct answer in rightAnswer
+    if (operation == "add") {
+        runAdditionGame(num1, num2);
+    }
+    else
+    if (operation == "subtract") {
+        // Call subtraction game here
+    }
+    else
+    if (operation == "multiply") {
+        // Call multiplication game here
+    }
+}
 
-    gameStatus.rightAnswer = (num1 + num2);
-    
-    return `${num1} + ${num2}?`;
+function runAdditionGame(operand1, operand2) {
+    document.getElementById("operand1").textContent = operand1;
+    document.getElementById("operand2").textContent = operand1;
+    document.getElementById("operator").textContent = "+";
 }
