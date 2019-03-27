@@ -18,15 +18,15 @@
     </h1>
 
     <div class="controls">
-        <button class="btn btn--big btn--red" onclick="runGame('add')">
+        <button class="btn btn--big btn--red">
             <i class="fas fa-plus-circle"></i>
             Addition
         </button>
-        <button class="btn btn--big btn--blue" onclick="runGame('subtract')">
+        <button class="btn btn--big btn--blue">
             <i class="fas fa-minus-circle"></i>
             Subtraction
         </button>
-        <button class="btn btn--big btn--green" onclick="runGame('multiply')">
+        <button class="btn btn--big btn--green">
             <i class="fas fa-times-circle"></i>
             Multiplication
         </button>
@@ -34,7 +34,7 @@
 
     <h2>Correct answers: <span id="score">0</span></h2>
 
-    <form id="quiz" onsubmit="checkAnswer(event)">
+    <form id="quiz">
         <h1>What is:
             <span id="operand1"></span>
             <span id="operator"></span>
@@ -50,7 +50,7 @@
         <button class="btn btn--gray" type="submit">Submit Answer</button>
     </form>
 
-    <script src="js/game.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

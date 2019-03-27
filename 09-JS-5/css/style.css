@@ -1,0 +1,115 @@
+body {
+    background-color: lightblue;
+    font-family: "Raleway", sans-serif;
+    color: darkslategray;
+    text-align: center;
+}
+
+.heading {
+    background-color: yellow;
+    color: red;
+    font-family: "Righteous", cursive;
+    text-align: center;
+    text-shadow: 2px 2px lightgray;
+
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 50px;
+    left: -70px;
+    width: 350px;
+}
+
+.text-heart {
+    font-size: 20px;
+}
+
+.btn {
+    width: 220px;
+    height: 60px;
+    border-radius: 0;
+    color: white;
+    font-family: "Raleway", sans-serif;
+    font-size: large;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.2px
+}
+
+.btn--big {
+    width: 220px;
+    height: 75px;
+}
+
+.btn--blue {
+    background-color: blue;
+}
+
+.btn--blue:active,
+.btn--blue:hover {
+    background-color: darkblue;
+}
+
+.btn--red {
+    background-color: red;
+}
+
+.btn--red:active,
+.btn--red:hover {
+    background-color: darkred;
+}
+
+.btn--green {
+    background-color: green;
+}
+
+.btn--green:active,
+.btn--green:hover {
+    background-color: darkgreen;
+}
+
+.btn--gray {
+    background-color: slategray;
+}
+
+.btn--gray:active,
+.btn--gray:hover {
+    background-color: darkslategray;
+}
+
+.controls {
+    margin-top: 50px;
+}
+
+#score {
+    color: green;
+    font-weight: bold;
+}
+
+#question {
+    color: red;
+    font-weight: bold;
+}
+
+#answer-history {
+    height: 40px;
+    font-size: 20px;
+}
+
+.answer-correct {
+    color: green;
+    margin-right: 5px;
+}
+
+.answer-incorrect {
+    color: red;
+    margin-right: 5px;
+}
+
+input {
+    height: 30px;
+}
+
+label {
+    font-size: 1.5em;
+    font-weight: bold;
+}
