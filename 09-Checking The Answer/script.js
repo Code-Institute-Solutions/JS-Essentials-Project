@@ -42,7 +42,7 @@ function runGame(gameType) {
 
 function checkAnswer() {
 
-    let userAnswer = parseInt(document.getElementById("answer-box").value) || 0;
+    let userAnswer = parseInt(document.getElementById("answer-box").value);
     let calculatedAnswer = calculateRightAnswer(); // calculatedAnswer is an array
     let isCorrect = userAnswer === calculatedAnswer[0]; // isCorrect has a true or false value
 
