@@ -3,7 +3,6 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByTagName("button");
-    let gameType = "addition";
 
     for (let button of buttons) {
         button.addEventListener("click", function () {
@@ -15,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-    runGame(gameType);
+    runGame("addition");
 });
 
 // The main game "loop", called when the script is first loaded
